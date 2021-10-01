@@ -1,0 +1,100 @@
+:root {
+  --main-size: 400px;
+  --main-color: #f57716;
+  --white-color: #fff;
+}
+
+body {
+  background: #eee;
+  padding: 50px;
+}
+
+.images {
+  position: relative;
+  max-width: var(--main-size);
+  margin: auto;
+}
+
+.zoom-area {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: calc(var(--main-size) + 20px);
+  z-index: 10;
+  border: 1px solid #ccc;
+  width: 520px;
+  height: 520px;
+  overflow: hidden;
+}
+.zoom-area.active {
+  display: block;
+}
+
+.slides-container {
+  width: var(--main-size);
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white-color);
+  width: var(--main-size);
+  height: var(--main-size);
+}
+
+.m-lens-container {
+  display: inline-block;
+  position: relative;
+  cursor: url(https://img.icons8.com/ios/2x/zoom-in--v2.png), zoom-in;
+}
+.m-lens-container:hover .m-lens {
+  display: block;
+}
+
+.m-lens {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  background: var(--main-color);
+  opacity: 0.3;
+  width: calc(var(--main-size) / 2);
+  height: calc(var(--main-size) / 2);
+}
+
+.m-lens-img {
+  max-width: var(--main-size);
+  max-height: var(--main-size);
+}
+
+.thumbnail {
+  margin: 16px 0;
+}
+
+.thumbnail-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 80px;
+  gap: 16px;
+  width: var(--main-size);
+}
+
+.thumbnail-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white-color);
+  transition: opacity 0.2s ease;
+}
+.thumbnail-item.active {
+  outline: 1px solid var(--main-color);
+}
+.thumbnail-item:hover {
+  opacity: 0.7;
+}
+.thumbnail-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: scale-down;
+}
